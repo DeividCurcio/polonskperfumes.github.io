@@ -1,0 +1,350 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #333;
+}
+
+/* Cabeçalho */
+header {
+  background: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 1rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+nav a:hover { color: #f7b731; }
+
+.actions button {
+  background: #f7b731;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Banner (Hero) */
+.hero {
+  position: relative;
+  color: #fff;
+  text-align: center;
+  overflow: clip;
+  /* Altura reduzida pela metade */
+  min-height: clamp(140px, 25vh, 280px);
+}
+
+.hero__media {
+  /* Reserva espaço e evita CLS */
+  aspect-ratio: 32 / 9; /* metade da altura em relação a 16:9 */
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: brightness(0.8);
+}
+
+/* Fallback de fundo se a imagem não carregar */
+.hero {
+  background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+}
+
+.hero__content {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+.hero h1 { font-size: 2.5rem; }
+.hero p { margin-top: 1rem; font-size: 1.2rem; }
+.cta {
+  background: #f7b731;
+  border: none;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Produtos */
+.products {
+  padding: 3rem 2rem;
+  text-align: center;
+  max-width: 1200px;
+  margin-inline: auto;
+  scroll-margin-top: 90px; /* evita que o header sticky cubra o título ao rolar */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(150px, 22vw, 240px), 1fr)
+  );
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1; /* mantém proporção consistente e responsiva */
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.card h3 { margin: 1rem 0 0.5rem; }
+.card p { color: #666; font-size: 0.9rem; }
+.card .price {
+  color: #f7b731;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+/* WhatsApp */
+.whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #25d366;
+  color: white;
+  padding: 1rem;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+/* Rodapé */
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* RESPONSIVIDADE */
+
+/* Menu Mobile */
+.mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #111;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.mobile-nav.mobile-active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 0.5rem 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(clamp(160px, 28vw, 220px), 1fr)
+    );
+    gap: 1rem;
+  }
+  
+  .hero h1 {
+    font-size: clamp(1.6rem, 5vw, 2rem);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+    position: relative;
+  }
+  
+  .logo {
+    font-size: 1.2rem;
+  }
+  
+  nav {
+    display: none;
+  }
+  
+  .mobile-nav {
+    display: flex;
+  }
+  
+  .actions {
+    gap: 0.5rem;
+  }
+  
+  .actions button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .hero h1 {
+    font-size: clamp(1.4rem, 6vw, 1.8rem);
+  }
+  
+  .hero p {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+  }
+  
+  .products {
+    padding: 2rem 1rem;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(clamp(140px, 40vw, 180px), 1fr)
+    );
+    gap: 0.8rem;
+  }
+  
+  .card {
+    padding: 0.8rem;
+  }
+  
+  .card img {
+    aspect-ratio: 1 / 1;
+  }
+  
+  .whatsapp {
+    bottom: 20px;
+    right: 20px;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 480px) {
+  header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  
+  .hero p {
+    font-size: 0.9rem;
+  }
+  
+  .cta {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+  
+  .card h3 {
+    font-size: 0.9rem;
+  }
+  
+  .card p {
+    font-size: 0.8rem;
+  }
+  
+  .whatsapp {
+    bottom: 15px;
+    right: 15px;
+    padding: 0.7rem;
+    font-size: 1rem;
+  }
+}
+
+/* Lazy loading styles */
+.card img.lazy {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card img.lazy:not([src]) {
+  background: #f0f0f0;
+}
+
+/* Animações suaves */
+.card button {
+  background: #f7b731;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.card button:hover {
+  background: #e6a01a;
+  transform: translateY(-2px);
+}
+
+.card button:active {
+  transform: translateY(0);
+}

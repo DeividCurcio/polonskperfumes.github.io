@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PerfumePolonski</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Precarregue a imagem do banner (placeholder externo enviado pelo cliente) -->
+  <link
+    rel="preload"
+    as="image"
+    href="https://img.freepik.com/vetores-gratis/banner-promocional-com-perfume-premium_1419-2233.jpg?semt=ais_hybrid&w=740&q=80"
+    imagesizes="100vw"
+  >
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="logo"> PerfumePolonski</div>
+    <nav>
+      <a href="#">Início</a>
+      <a href="#">Catálogo</a>
+      <a href="#">Promoções</a>
+      <a href="#">Contato</a>
+    </nav>
+    <div class="actions">
+      <button id="loginBtn">Login com Google</button>
+      <button id="cartBtn">🛒</button>
+    </div>
+  </header>
+
+  <!-- Banner (Hero) -->
+  <section class="hero" aria-label="Banner principal">
+    <!-- Imagem do banner: usando placeholder externo fornecido -->
+    <div class="hero__media" role="img" aria-label="Banner promocional com perfume premium">
+      <img
+        class="hero__img"
+        src="https://img.freepik.com/vetores-gratis/banner-promocional-com-perfume-premium_1419-2233.jpg?semt=ais_hybrid&w=740&q=80"
+        alt="Banner promocional com perfume premium"
+        width="740"
+        height="208"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </div>
+    <div class="hero__content">
+      <h1>Descubra seu aroma ideal</h1>
+      <p>Perfumes importados e nacionais com até 50% OFF</p>
+      <button class="cta">Ver produtos</button>
+    </div>
+  </section>
+
+  <!-- Cards de produtos -->
+  <section class="products">
+    <h2>Nossos Perfumes</h2>
+    <div id="productGrid" class="grid"></div>
+  </section>
+
+  <!-- WhatsApp -->
+  <a href="https://web.whatsapp.com/send?phone=5522998395551" class="whatsapp" target="_blank" rel="noopener noreferrer">
+    💬 Fale Conosco
+  </a>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2025 PerfumeStore - Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
