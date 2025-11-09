@@ -144,20 +144,24 @@ nav a:hover { color: #f7b731; }
 }
 
 /* WhatsApp */
-.whatsapp {
+.whatsapp-btn {
   position: fixed;
-  bottom: 25px;
-  right: 25px;
+  bottom: 20px;
+  right: 20px;
   background: #25d366;
-  color: white;
-  padding: 1rem;
-  border-radius: 50%;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 999px; /* pill */
   text-decoration: none;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
+  font-size: 1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: transform 0.25s ease, opacity 0.2s ease;
   z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
+.whatsapp-btn:hover { transform: translateY(-3px); }
 
 /* Rodapé */
 footer {
@@ -270,11 +274,11 @@ footer {
     aspect-ratio: 1 / 1;
   }
   
-  .whatsapp {
-    bottom: 20px;
-    right: 20px;
-    padding: 0.8rem;
-    font-size: 1.2rem;
+  .whatsapp-btn {
+    bottom: 18px;
+    right: 18px;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.95rem;
   }
 }
 
@@ -310,11 +314,11 @@ footer {
     font-size: 0.8rem;
   }
   
-  .whatsapp {
-    bottom: 15px;
-    right: 15px;
-    padding: 0.7rem;
-    font-size: 1rem;
+  .whatsapp-btn {
+    bottom: 12px;
+    right: 12px;
+    padding: 0.55rem 0.8rem;
+    font-size: 0.95rem;
   }
 }
 

@@ -1,18 +1,30 @@
-# Node
+# Node / JS
 node_modules/
-
-# Env
-.env
-
-# Logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# OS
+# Build outputs
+build/
+dist/
+coverage/
+.cache/
+
+# OS / Editor
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
 
-# Build artifacts
-/dist
-/uploads
+# Env / Secrets
+.env
+.env.*
+
+# Uploads and generated content
+perfume-store/uploads/
+
+# Misc
+.tmp/
+*.local
